@@ -96,12 +96,12 @@ def move():
     writer.write(state['score'])
 
     clear()
-
+#le da la dirección indicada a pacman
     if valid(pacman + aim):
         pacman.move(aim)
 
     index = offset(pacman)
-
+#lleva el marcador
     if tiles[index] == 1:
         tiles[index] = 2
         state['score'] += 1
@@ -174,7 +174,7 @@ def move():
             plan = choice(options)
             course.x = plan.x
             course.y = plan.y
-
+#le da tamaño, color y dirección a los fantasmas 
         up()
         goto(point.x + 10, point.y + 10)
         dot(20, 'red')
