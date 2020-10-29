@@ -14,6 +14,7 @@ ghosts = [
     [vector(100, 160), vector(0, -5)],
     [vector(100, -160), vector(-5, 0)],
 ]
+# Dibuja el tablero donde 0 es vacio y 1 es el camino
 tiles = [
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0,
@@ -119,7 +120,7 @@ def move():
     goff = offset(pacman)
     gcol = goff%20
     gren = math.floor(goff/20)
-
+# Esto permite que los fantasmas sean más inteligentes
     for point, course in ghosts:
         if valid(point + course):
             point.move(course)
@@ -179,7 +180,7 @@ def move():
         dot(20, 'red')
 
     update()
-
+#Mueve mas rapido a pacman y los fantasmas
     for point, course in ghosts:
         if abs(pacman - point) < 20:
             return
